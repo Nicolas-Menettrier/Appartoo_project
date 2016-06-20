@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -35,23 +34,23 @@
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="168" id="5ig-be-DG3"/>
                                                         <constraint firstAttribute="height" constant="90" id="Ife-nm-s3U"/>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="168" id="NyH-pw-FBE"/>
+                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="90" id="hPi-JE-XQy"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0mR-bl-smL">
                                                     <rect key="frame" x="8" y="106" width="42" height="21"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" secondItem="0mR-bl-smL" secondAttribute="height" multiplier="2:1" id="A9D-OP-e3r"/>
-                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="PFr-Qc-Nrk" firstAttribute="leading" secondItem="no5-Xm-vrT" secondAttribute="leadingMargin" id="Ir9-O3-MxK"/>
-                                                <constraint firstItem="PFr-Qc-Nrk" firstAttribute="top" secondItem="no5-Xm-vrT" secondAttribute="topMargin" id="JFU-WI-OOE"/>
-                                                <constraint firstItem="0mR-bl-smL" firstAttribute="top" secondItem="PFr-Qc-Nrk" secondAttribute="bottom" constant="8" symbolic="YES" id="d7H-Ch-AbZ"/>
-                                                <constraint firstItem="0mR-bl-smL" firstAttribute="leading" secondItem="PFr-Qc-Nrk" secondAttribute="leading" id="pxV-Ih-1N8"/>
+                                                <constraint firstItem="PFr-Qc-Nrk" firstAttribute="top" secondItem="no5-Xm-vrT" secondAttribute="topMargin" id="DOR-eh-xwd"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="0mR-bl-smL" secondAttribute="bottom" constant="11" id="Fqa-AR-SjB"/>
+                                                <constraint firstItem="0mR-bl-smL" firstAttribute="top" secondItem="PFr-Qc-Nrk" secondAttribute="bottom" constant="8" id="Nyb-Hg-XDa"/>
+                                                <constraint firstItem="0mR-bl-smL" firstAttribute="leading" secondItem="no5-Xm-vrT" secondAttribute="leadingMargin" id="X1b-Ly-YQe"/>
+                                                <constraint firstItem="PFr-Qc-Nrk" firstAttribute="leading" secondItem="no5-Xm-vrT" secondAttribute="leadingMargin" id="pqo-OK-IeD"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -91,20 +90,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="INa-wM-pg7">
-                                <rect key="frame" x="35" y="128" width="530" height="404"/>
+                                <rect key="frame" x="-1" y="64" width="603" height="445"/>
                                 <subviews>
                                     <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Rcb-Qw-ShN">
-                                        <rect key="frame" x="0.0" y="0.0" width="530" height="404"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="603" height="445"/>
                                     </mapView>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zzt-KI-REh">
-                                <rect key="frame" x="35" y="550" width="98" height="30"/>
-                                <state key="normal" title="Mode Satellite"/>
-                                <connections>
-                                    <action selector="satelliteButton:" destination="UNP-Aw-0ez" eventType="touchUpInside" id="1iQ-Ei-mt1"/>
-                                </connections>
-                            </button>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="kOh-rz-exO">
                                 <rect key="frame" x="449" y="550" width="118" height="31"/>
                                 <constraints>
@@ -120,19 +112,26 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zzt-KI-REh">
+                                <rect key="frame" x="20" y="517" width="98" height="30"/>
+                                <state key="normal" title="Mode Satellite"/>
+                                <connections>
+                                    <action selector="satelliteButton:" destination="UNP-Aw-0ez" eventType="touchUpInside" id="1iQ-Ei-mt1"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="n3r-4O-9lM" firstAttribute="baseline" secondItem="Zzt-KI-REh" secondAttribute="baseline" id="396-O1-gkD"/>
-                            <constraint firstItem="kOh-rz-exO" firstAttribute="top" secondItem="Zzt-KI-REh" secondAttribute="top" id="4FZ-dD-Whj"/>
-                            <constraint firstItem="kOh-rz-exO" firstAttribute="leading" secondItem="n3r-4O-9lM" secondAttribute="trailing" constant="8" symbolic="YES" id="9gf-bR-WTf"/>
-                            <constraint firstItem="INa-wM-pg7" firstAttribute="top" secondItem="arO-Jq-JEB" secondAttribute="bottom" constant="64" id="BKQ-58-a1H"/>
-                            <constraint firstItem="Zzt-KI-REh" firstAttribute="leading" secondItem="INa-wM-pg7" secondAttribute="leading" id="Iok-PO-ZQZ"/>
-                            <constraint firstAttribute="bottom" secondItem="Zzt-KI-REh" secondAttribute="bottom" constant="20" symbolic="YES" id="cGH-Nd-mZt"/>
-                            <constraint firstItem="INa-wM-pg7" firstAttribute="leading" secondItem="PME-PK-roa" secondAttribute="leadingMargin" constant="15" id="dsF-VX-sLr"/>
-                            <constraint firstItem="Eg3-hq-CYr" firstAttribute="top" secondItem="INa-wM-pg7" secondAttribute="bottom" constant="68" id="hzO-r3-6Jt"/>
-                            <constraint firstItem="INa-wM-pg7" firstAttribute="centerX" secondItem="PME-PK-roa" secondAttribute="centerX" id="yK2-Oa-7nt"/>
-                            <constraint firstItem="kOh-rz-exO" firstAttribute="trailing" secondItem="INa-wM-pg7" secondAttribute="trailing" id="zaF-m6-nan"/>
+                            <constraint firstItem="INa-wM-pg7" firstAttribute="top" secondItem="arO-Jq-JEB" secondAttribute="bottom" id="1Wr-rk-eue"/>
+                            <constraint firstItem="Eg3-hq-CYr" firstAttribute="top" secondItem="kOh-rz-exO" secondAttribute="bottom" constant="20" id="4Eu-gI-04c"/>
+                            <constraint firstItem="Zzt-KI-REh" firstAttribute="top" secondItem="INa-wM-pg7" secondAttribute="bottom" constant="8" symbolic="YES" id="DmA-Io-Zn1"/>
+                            <constraint firstItem="INa-wM-pg7" firstAttribute="centerX" secondItem="PME-PK-roa" secondAttribute="centerX" id="EfD-eC-kpY"/>
+                            <constraint firstItem="Zzt-KI-REh" firstAttribute="leading" secondItem="PME-PK-roa" secondAttribute="leadingMargin" id="MFG-7V-79a"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="kOh-rz-exO" secondAttribute="trailing" constant="15" id="Zxj-OX-Q9s"/>
+                            <constraint firstItem="INa-wM-pg7" firstAttribute="leading" secondItem="PME-PK-roa" secondAttribute="leadingMargin" constant="-21" id="fFx-2u-ze4"/>
+                            <constraint firstItem="Eg3-hq-CYr" firstAttribute="top" secondItem="Zzt-KI-REh" secondAttribute="bottom" constant="53" id="lda-xu-yDR"/>
+                            <constraint firstItem="n3r-4O-9lM" firstAttribute="centerY" secondItem="kOh-rz-exO" secondAttribute="centerY" id="nJB-aI-cbN"/>
+                            <constraint firstItem="kOh-rz-exO" firstAttribute="leading" secondItem="n3r-4O-9lM" secondAttribute="trailing" constant="8" symbolic="YES" id="s5k-EV-XYL"/>
                         </constraints>
                     </view>
                     <connections>
