@@ -13,17 +13,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     var donnees = [entree]()
-    
-    struct entree {
-        let image_url :String
-        let bar_name :String
-        let bar_tag :String
-        let bar_address :String
-        let latitude :Double
-        let longitude : Double
-    }
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         extract_json()
@@ -71,6 +61,10 @@ class ViewController: UIViewController {
                 details.bar_name = entre.bar_name
                 details.bar_tag = entre.bar_tag
             }
+        }
+        if segue.identifier == "AllBar" {
+            let details = segue.destinationViewController as! ViewAllBarController
+            details.donnees = donnees
         }
     }
     

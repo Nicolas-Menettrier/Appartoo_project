@@ -10,8 +10,6 @@ import UIKit
 
 class BarTableViewCell: UITableViewCell {
 
-
-    
     @IBOutlet weak var bar_photo: UIImageView!
     @IBOutlet weak var bar_name: UILabel!
     
