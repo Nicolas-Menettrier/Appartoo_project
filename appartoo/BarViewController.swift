@@ -12,17 +12,20 @@ import MapKit
 class BarViewController: UIViewController {
     
     @IBOutlet weak var map_bar_view: MKMapView!
+    @IBOutlet weak var button: UIButton!
+    @IBOutlet weak var Size: UISlider!
+    @IBOutlet weak var Name: UILabel!
+
     var bar_name: String?
     var bar_tag: String?
     var latitude: Double?
     var longitude: Double?
+    var isAnimated = false
     var zoom: Double? = 0.005
-    
-    @IBOutlet weak var button: UIButton!
-    @IBOutlet weak var Size: UISlider!
-    @IBOutlet weak var Name: UILabel!
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        map_bar_view.hidden = true
         self.Name.text = "\(Size.value)"
         let location = CLLocationCoordinate2D(latitude: latitude!, longitude: longitude!)
         let span = MKCoordinateSpan(latitudeDelta: zoom!, longitudeDelta: zoom!)
@@ -36,12 +39,35 @@ class BarViewController: UIViewController {
         annotation.subtitle = bar_tag
         map_bar_view.addAnnotation(annotation)
     }
+    
+    //à la disparation
+    override func viewDidDisappear(animated: Bool) {
+        if isAnimated == true {
+            UIView.animateWithDuration(1, animations: {
+                self.map_bar_view.center.x -= 500
+            })
+        }
+        map_bar_view.hidden = true
+        isAnimated = false
+    }
+    
+    //à l'apparition
+    override func viewDidAppear(animated: Bool) {
+        map_bar_view.hidden = false
+        if isAnimated == false {
+            UIView.animateWithDuration(1, animations: {
+                self.map_bar_view.center.x += 500
+            })
+            isAnimated = true
+        }
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
  
+    //mode satellite
     @IBAction func satelliteButton(sender: UIButton) {
         if map_bar_view.mapType == MKMapType.Standard {
             map_bar_view.mapType = MKMapType.Satellite
@@ -51,6 +77,7 @@ class BarViewController: UIViewController {
         }
     }
 
+    //zoom fonction
     @IBAction func slider(sender: UISlider) {
         self.Name.text = "\(Size.value)"
         zoom = Double(Size.value / 100)
@@ -61,14 +88,5 @@ class BarViewController: UIViewController {
         map_bar_view.setRegion(region, animated: true)
         
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
 }
